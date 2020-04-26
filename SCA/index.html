@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonaci Generator</title>
+    <style>
+        h1{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #inputValue{
+            width:50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>FIBONACI GENERATOR</h1>
+    <div>
+   <form id="form">
+     <input id="inputValue" type=text placeholder="Enter in the number of terms of the sequence">
+     <input type="submit" id="submit" value="Submit">
+    </form>
+    </div>
+     <div id='output'>
+         <span class="first"></span>
+         <span class="second"></span>
+         <span class="output"></span>
+     </div>
+<script>
+    var count=document.getElementById("inputValue").value;
+    var first=0;
+    var second=1;
+    var form=document.getElementById('form')
+    form.addEventListener("click", function(e){
+    document.querySelector(".first").innerHTML=first;
+    document.querySelector(".second").innerHTML=second;
+    for(let i=0; i<count; i++){
+    const value = first+second;
+    document.querySelector(".output").innerHTML+=`  ${value}`;
+    first=second;
+    second=value;
+    }
+    e.preventDefault();
+   });
+</script>
+</body>
+</html>
